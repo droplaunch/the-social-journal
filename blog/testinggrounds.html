@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>drum machines and samplers</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ff66;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* CRT Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    a {
+      color: #00ff66;
+      text-decoration: underline;
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+      text-shadow: 0 0 8px #00ff66;
+      filter: contrast(120%);
+    }
+
+    h1, h2 {
+      margin-top: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      border-bottom: 1px solid #00ff66;
+      padding-bottom: 0.5rem;
+      animation: typewriter 3s steps(30) 1s 1 normal both;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      transition: 0.3s;
+    }
+
+    h2:hover {
+      color: #00ff99;
+      text-shadow: 0 0 8px #00ff66;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      animation: fadeInText 1s ease forwards;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInText 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes typewriter {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html">&larr; back to home</a>
+  <h1>drum machines and samplers</h1>
+  <p><strong>published on:</strong> april 12, 2025<br>
+     <strong>author:</strong>seek and tell</p>
+
+  <h2>vision</h2>
+  <p>
+    my album ain’t just music — it’s a <strong>statement</strong>.<br><br>
+    a sonic journal of ambition, heartbreak, ego, pressure, freedom, rebellion — everything I’ve lived through while building my life.
+    inspired by the likes of <strong>donda</strong>, <strong>life of pablo</strong>, and the rawness of underground sounds,
+    the project blends <strong>soul samples</strong>, <strong>trap drums</strong>, <strong>spoken word</strong>, and even <strong>voice note glitches</strong>.
+  </p>
+
+  <h2>sounds</h2>
+  <ul>
+    <li><strong>“on read”</strong> — a follow-up to <em>“Homewrecker”</em>, this track spirals through regret and resilience over a travis scott inspired beat.</li>
+    <li><strong>“metroLife”</strong> — beat built entirely on subway noise and 808s. it’s claustrophobic but slick.</li>
+    <li><strong>“nda freestyle”</strong> — just me, the mic, and truths I can’t say on record. Inspired by late-night freestyle energy.</li>
+    <li><strong>“homewrecker”</strong> — gospel vocal chops meet the rage sound. a letter of failure.</li>
+  
+  </ul>
+
+  <h2>process & inspiration</h2>
+  <p>
+    i built this album in between my different tasks<br>
+    the irony? this <em>might outlive the unreleased projects I planned.</em>
+  </p>
+  <p>
+    <strong>the lab:</strong><br>
+    • soundtrap + voice recorder + bandlab<br>
+    • ye’s stem player for experimenting<br>
+    • random movie dialogues, late-night TED talks, and voice memos from the amicis
+  </p>
+
+  <h2>but why?</h2>
+  <p>
+    i’m graduating soon, and this is my way of saying goodbye to the past while embracing the future.
+    it’s a <strong>digital time capsule</strong> of my journey, a soundtrack to the chaos and clarity of these years.
+  </p>
+  <p>
+    i’m not just a student anymore. i’m a creator, a hustler, and this album is my <strong>graduation</strong> — from high school, from the old me.
+  </p>
+  <h2>when?</h2>
+  <p>
+    the full album is coming soon on <strong>untitled</strong> and <strong>DSP's</strong>. wish you could be there....
+  </p>
+  <p>
+    → <a href="comingsoon.html" target="_blank">Listen on DSP's</a><br>
+    → <a href="comingsoon.html" target="_blank">Watch on YouTube</a>
+  <h2>future?</h2>
+  <p>
+    gonna dropping exclusive snippets of the mixtape project on <strong>untitled</strong> after I finish recording vocals soon.
+   and the full project will be out on <strong>DSP's</strong> in 2026.
+  </p>
+  <p>
+    → <a href="https://thedigitalerror.netlify.app/" target="_blank">visit Digital Error Collective</a><br>
+    → <a href="https://www.instagram.com/thedigitalerror/" target="_blank">follow the collective on instagram</a>
+  </p>
+      <p>-from the desk of seek and tell</p>
+</body>
+</html>
