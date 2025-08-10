@@ -14,7 +14,7 @@ About: A quick rundown of who I am, what I'm passionate about, and what makes me
 
 Contact: The place to be if you feel like reaching out.
 
-Instagrams: A visual journal where I log my life's moments with photos from my DSLR.
+Besides this, on the project's instagram, a visual journal is present where I log my life's moments with photos from my DSLR.
 
 This site is my little corner of the internet, designed to be simple, honest, and free from the noise. It’s built with just HTML and CSS because, sometimes, the simplest things are the most profound.
 
