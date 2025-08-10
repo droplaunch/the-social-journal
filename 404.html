@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 not found</title>
+    <style>
+        body {
+            background: #0d0d0d;
+            color: #00ff9f;
+            font-family: "Courier New", monospace;
+            margin: 0;
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav {
+            margin-bottom: 30px;
+        }
+        nav a {
+            color: #ff5e5e;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        nav a:hover {
+            text-shadow: 0 0 8px #ff5e5e;
+        }
+
+        .error-container {
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: #00ffaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            animation: glitch 1s infinite;
+        }
+
+        .error-emoji {
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #00ff9f;
+        }
+
+        .home-link {
+            display: inline-block;
+            background: none;
+            color: #ff5e5e;
+            padding: 8px 16px;
+            border: 1px solid #ff5e5e;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .home-link:hover {
+            background: #ff5e5e;
+            color: #0d0d0d;
+        }
+
+        .journal-image {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px solid #00ff9f;
+        }
+
+        .audio-indicator {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff00c8, -2px -2px #00fff2; }
+            50% { text-shadow: -2px -2px #ff00c8, 2px 2px #00fff2; }
+            100% { text-shadow: 2px 2px #ff00c8, -2px -2px #00fff2; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* cursor dot */
+        .cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff9f;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #444;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="posts.html">posts</a>
+        <a href="about.html">contact</a>
+    </nav>
+
+    <main class="error-container">
+        <div class="error-code">
+            404 
+            <span class="error-emoji">😵</span>
+        </div>
+        <div class="error-message">page not found</div>
+         <p>this page wandered off into the wormhole</p>
+        <a href="index.html" class="home-link">return home</a>
+        
+        <div class="audio-indicator" id="audio-status" style="display: none;">
+            🎵 playing preacher man...
+        </div>
+    </main>
+
+    <footer>
+        © 2025 the social journal | all rights reserved
+    </footer>
+
+    <script>
+        // cursor trail
+        document.addEventListener('mousemove', (e) => {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-dot';
+            dot.style.left = `${e.clientX}px`;
+            dot.style.top = `${e.clientY}px`;
+            dot.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+            document.body.appendChild(dot);
+            setTimeout(() => dot.remove(), 1000);
+        });
+
+        // audio player
+        const gumballAudio = new Audio('assets/audio/Kanye-West-Preacher-Man-Instrumental-Prod.-By-Kanye-West.mp3');
+        let isPlaying = false;
+        
+        document.querySelector('.error-emoji').addEventListener('click', () => {
+            const statusElement = document.getElementById('audio-status');
+            
+            if (isPlaying) {
+                gumballAudio.pause();
+                gumballAudio.currentTime = 0;
+                statusElement.style.display = 'none';
+            } else {
+                gumballAudio.play()
+                    .then(() => {
+                        statusElement.style.display = 'block';
+                    })
+                    .catch(() => {
+                        statusElement.textContent = "🎵 click anywhere to enable audio";
+                        statusElement.style.display = 'block';
+                        document.body.addEventListener('click', () => {
+                            gumballAudio.play();
+                        }, { once: true });
+                    });
+            }
+            
+            isPlaying = !isPlaying;
+        });
+
+        // auto pause on tab switch
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                gumballAudio.pause();
+                isPlaying = false;
+                document.getElementById('audio-status').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
